@@ -23,11 +23,12 @@ const startApolloServer = async () => {
 
 
 
-
+  db.once('open', () => {
   app.listen(PORT, (req, res) => {
     console.log(`app is listening to PORT ${PORT}`)
     console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
-  })
-}
+  });
+});
+};
 
 startApolloServer();
