@@ -16,12 +16,12 @@ const typeDefs = `
   }
 
   type Query {
+    getallPosts: Post
+    getallUsers: User
    
   }
 
-  type Mutation {
-   
-  }
+ 
 `;
 
 module.exports = typeDefs;

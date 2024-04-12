@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "concurrently": "^8.2.2",
     "express": "^4.19.2",
     "mongoose": "^8.3.1",
     "react": "^17.0.2",
@@ -9,7 +10,8 @@
     "semantic-ui-react": "^2.1.5"
   },
   "scripts": {
-    "start": "react-scripts start"
+    
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\""
   },
   "browserslist": {
     "production": [
