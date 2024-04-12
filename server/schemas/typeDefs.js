@@ -5,7 +5,7 @@ const typeDefs = `
     name: String!
     email: String!
     password: String!
-    post: [String]!
+    post: [Post]!
   }
 
   type Auth {
@@ -22,8 +22,8 @@ const typeDefs = `
   }
 
   type Query {
-    getallPosts: Post
-    getallUsers: User
+    posts: Post
+    users: User
    
   }
 
