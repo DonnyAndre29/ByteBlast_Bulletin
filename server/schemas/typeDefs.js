@@ -5,6 +5,12 @@ const typeDefs = `
     name: String!
     email: String!
     password: String!
+    post: [String]!
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Post {

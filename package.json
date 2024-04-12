@@ -10,7 +10,6 @@
     "semantic-ui-react": "^2.1.5"
   },
   "scripts": {
-    
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\""
   },
   "browserslist": {
