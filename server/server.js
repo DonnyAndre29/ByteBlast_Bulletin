@@ -1,6 +1,9 @@
 const express = require("express")
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+require('dotenv').config();
+
+const secret = process.env.SECRET;
 
 const server = new ApolloServer({
   typeDefs,
