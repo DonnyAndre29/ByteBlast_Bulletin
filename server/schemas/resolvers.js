@@ -1,5 +1,5 @@
 // resolvers
-const {User, Post} = require('../models'); // Blog Model
+const {User, Post} = require('../models'); 
 
 const blogResolvers = {
   Query: {
