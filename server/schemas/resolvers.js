@@ -1,42 +1,48 @@
 // resolvers
-const {User, Post} = require('../models'); 
+const {User, Post} = require('../models');
+const { signToken, AuthenticationError } = require('../utils/auth'); 
 
 const blogResolvers = {
    // Important for useQuery: The resolver matches the typeDefs entry point and informs the request of the relevant data
    Query: {
     users: async () => {
-      return User.find();
+      return User.find().populate('posts');
     },
 
     user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId });
+      return User.findOne({ userId }).populate('posts');
     },
 
     posts: async () => {
-      return Post.find();
+      const params = username ? { username } : {};
+      return Post.find(params);
     },
 
-    post: async (parent, { post }) => {
-      return Post.findOne({ post });
+    post: async (parent, { postId }) => {
+      return Post.findOne({ _id: postId });
     },
 
   },
   
   Mutation: {
-    addUser: async (parent, { name }) => {
-      return User.create({ name });
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      // Return an `Auth` object that consists of the signed token and user's information
+      return { token, user };
+
     },
-    addPost: async (parent, { userId, post }) => {
-      return Profile.findOneAndUpdate(
-        { _id: userId },
-        {
-          $addToSet: { posts: post },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
+
+    addPost: async (parent, { content, author }) => {
+      const post = await Post.create({ content, author });
+
+      await User.findOneAndUpdate(
+        { username: author },
+        { $addToSet: { posts: post._id } }
       );
+
+      return post;
+
     },
 
     login: async (parent, { email, password }) => {
@@ -56,18 +62,18 @@ const blogResolvers = {
       return { token, User };
     },
 
-    removeUser: async (parent, { profileId }) => {
+    removeUser: async (parent, { userId }) => {
       return User.findOneAndDelete({ _id: userId });
     },
-    removePost: async (parent, { profileId, skill }) => {
-      return User.findOneAndUpdate(
-        { _id: userId },
-        { $pull: { posts: post } },
-        { new: true }
-      );
-    },
-  },
 
-};
+    removePost: async (parent, { postId }) => {
+      return Post.findOneAndDelete({ _id: postId });
+    },
+
+    
+    },
+    
+  }
+
 
 module.exports = blogResolvers;
