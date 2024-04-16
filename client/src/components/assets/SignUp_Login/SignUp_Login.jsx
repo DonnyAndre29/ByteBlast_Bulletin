@@ -45,3 +45,5 @@ const SignUp_Login = () => {
         </div>
     )
 }
+
+export default SignUp_Login;
