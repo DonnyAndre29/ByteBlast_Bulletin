@@ -1,8 +1,8 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import PostsList from '../components/PostsList';
-import PostForm from '../components/PostForm';
+// import PostsList from '../components/PostsList';
+// import PostForm from '../components/PostForm';
 
 import { QUERY_SINGLE_USER, QUERY_YOU } from '../utils/queries';
 
