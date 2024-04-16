@@ -13,8 +13,16 @@ const typeDefs = `
     title: String
     content: String
     author: String
-    date: Int
+    date: String
   }
+
+  type Comment {
+    _id: ID
+    commentContent: String
+    commentAuthor: String
+    date: String
+  }
+
 
   type Auth {
     token: ID!
@@ -32,8 +40,13 @@ const typeDefs = `
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addPost(content: String!, author: String!): Post
+    addComment(
+      postId: ID!
+      commentContent: String!
+      commentAuthor: String!
+    ): Post
     removePost(thoughtId: ID!): Post
-   
+    removeComment(postId: ID!, commentId: ID!): Post
   }
 
 
