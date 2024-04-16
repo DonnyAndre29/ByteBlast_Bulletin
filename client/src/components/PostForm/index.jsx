@@ -52,7 +52,7 @@ const PostForm = ({ profileId }) => {
         </form>
       ) : (
         <p>
-          You need to be logged in to endorse post. Please{' '}
+          You need to be logged in to comment post. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
