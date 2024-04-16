@@ -44,4 +44,6 @@ const SignUp_Login = () => {
             </div>
         </div>
     )
-}
+};
+
+export default SignUp_Login;
