@@ -62,9 +62,6 @@ const blogResolvers = {
       return { token, User };
     },
 
-    // removeUser: async (parent, { userId }) => {
-    //   return User.findOneAndDelete({ _id: userId });
-    // },
 
     removePost: async (parent, { postId }) => {
       return Post.findOneAndDelete({ _id: postId });
