@@ -22,6 +22,17 @@ export const QUERY_SINGLE_USER = gql`
   }
 `;
 
+export const QUERY_YOU = gql`
+  query me {
+    me {
+      _id
+      username
+      posts
+    }
+  }
+`;
+
+
 export const QUERY_POSTS = gql`
   query getPosts {
     posts {

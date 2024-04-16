@@ -4,6 +4,8 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import SignUp_Login from '../src/components/assets/SignUp_Login/SignUp_Login';
 
+
+
 function App() {
   return (
     <div className="App">
@@ -14,6 +16,8 @@ function App() {
       <SignUp_Login />
       <MainContent />
       <Footer />
+      
+      {/* <User /> */}
     </div>
   );
 }
