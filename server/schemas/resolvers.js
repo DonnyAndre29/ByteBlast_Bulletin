@@ -62,9 +62,31 @@ const blogResolvers = {
       return { token, User };
     },
 
+    addComment: async (parent, { postId, commentContent, commentAuthor }) => {
+      return Post.findOneAndUpdate(
+        { _id: postId },
+        {
+          $addToSet: { comments: { commentContent, commentAuthor } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+
+
 
     removePost: async (parent, { postId }) => {
       return Post.findOneAndDelete({ _id: postId });
+    },
+
+    removeComment: async (parent, { postId, commentId }) => {
+      return Post.findOneAndUpdate(
+        { _id: postId },
+        { $pull: { comments: { _id: commentId } } },
+        { new: true }
+      );
     },
 
     
