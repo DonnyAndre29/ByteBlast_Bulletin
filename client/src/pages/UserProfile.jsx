@@ -1,19 +1,19 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-// import PostsList from '../components/PostsList';
-// import PostForm from '../components/PostForm';
+import PostsList from '../components/PostsList';
+import PostForm from '../components/PostForm';
 
-import { QUERY_SINGLE_USER, QUERY_YOU } from '../utils/queries';
+import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
 const User = () => {
   const { userId } = useParams();
 
-  // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
+  // If there is no `userId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
-    userId ? QUERY_SINGLE_USER : QUERY_YOU,
+    userId ? QUERY_SINGLE_USER : QUERY_ME,
     {
       variables: { userId: userId },
     }
