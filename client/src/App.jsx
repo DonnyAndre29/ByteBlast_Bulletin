@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { Outlet } from 'react-router-dom';
-import Header from './components/Header/Header';
-import MainContent from './components/MainContent/MainContent';
-import Footer from './components/Footer/Footer';
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
+import 'semantic-ui-css/semantic.min.css';
+
 
 
 
@@ -45,16 +39,11 @@ function App() {
     <ApolloProvider client = {client}>
     <div className="App">
       <Header />
+      <MainContent />
       {/* You can conditionally render the SignUpLogin component based on some state or condition */}
       {/* For example, you can render it only when a certain route is matched */}
       {/* <Route path="/signup-login" component={SignUpLogin} /> */}
-    
-      
-    <div className="container">
-          <Outlet />
-        </div>
-
-      <MainContent />
+      {/* <SignUpLogin /> */}
       <Footer />
       
       {/* <User /> */}

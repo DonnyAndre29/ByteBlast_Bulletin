@@ -4,10 +4,9 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import './index.css'
 import 'semantic-ui-css/semantic.min.css'
 import App from './App.jsx'
-import Home from './pages/Home';
-// import Login from './pages/SignUp_Login/SignUp_Login.jsx'
- 
-
+import 'semantic-ui-css/semantic.min.css'
+import SignUpLogin from './pages/SignUp_Login/SignUp_Login'; 
+import SignUp_Login from './pages/SignUp_Login/SignUp_Login'
 
 
 const router = createBrowserRouter([
@@ -20,25 +19,16 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
-       }, // {
-      //  path: '/login',
-      //  element: <Login />
-      // },
-      //  {
-      //   path: '/signup',
-      //   element: <Signup />
-      // }, 
-      //{
-      //   path: '/users/:userId',
-      //   element: <User />
-      // }, {
-      // path: '/you',
-      // element: <User />
-       //}
-
+        element: <App />
+      }
     ]
-   },
+  },
+  {
+    path: '/SignUp_Login',
+    element: <SignUp_Login />,
+    errorElement: <h1>Wrong Page</h1>,
+
+  }
 ]);
 
 
