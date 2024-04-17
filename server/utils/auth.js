@@ -35,6 +35,34 @@ module.exports = {
     // return the request object so it can be passed to the resolver as `context`
     return req;
   },
+
+  signupResolver: async (req, res) => {
+    const { email, name, password } = req.body;
+
+    if (!email || !name || !password) {
+      return res.status(400).json({ message: 'Please provide all required fields' });
+    }
+
+    try {
+      // Check if the user already exists
+      const existingUser = await User.findOne({ email });
+      if (existingUser) {
+        return res.status(400).json({ message: 'User with this email already exists' });
+      }
+
+      const newUser = new User({ email, name, password });
+      await newUser.save();
+
+      const token = signToken(newUser);
+
+      return res.status(201).json({ token });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: 'An error occurred while signing up' });
+    }
+  },
+
+
   signToken: function ({ email, name, _id }) {
     const payload = { email, name, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
