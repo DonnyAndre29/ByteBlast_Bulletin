@@ -25,32 +25,32 @@ const blogResolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      const token = signToken(user);
-      // Return an `Auth` object that consists of the signed token and user's information
-      return { token, user };
+    // addUser: async (parent, { username, email, password }) => {
+    //   const user = await User.create({ username, email, password });
+    //   const token = signToken(user);
+    //   // Return an `Auth` object that consists of the signed token and user's information
+    //   return { token, user };
 
-    },
+    // },
 
     // Add the signupResolver here
     signupResolver: async (req, res) => {
-      const { email, name, password } = req.body;
+      const { email, username, password } = req.body;
 
       // Validate input
-      if (!email || !name || !password) {
-        return res.status(400).json({ message: 'Please provide all required fields' });
+      if (!email || !username || !password) {
+        return res.status(500).json({ message: 'Please provide all required fields' });
       }
 
       try {
         // Create a new user
-        const newUser = new User({ email, name, password });
+        const newUser = new User({ email, username, password });
         await newUser.save();
 
         // Generate JWT token
         const token = signToken(newUser);
 
-        return res.status(201).json({ token });
+        return res.status(201).json({ token, newUser });
       } catch (error) {
         console.error(error);
         return res.status(500).json({ message: 'An error occurred while signing up' });

@@ -2,7 +2,7 @@
 const typeDefs = `
   type User {
     _id: ID
-    name: String
+    username: String
     email: String
     password: String
     post: [Post]!
@@ -37,7 +37,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    signupResolver(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addPost(content: String!, author: String!): Post
     addComment(
