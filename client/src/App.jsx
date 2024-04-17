@@ -3,17 +3,17 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import 'semantic-ui-css/semantic.min.css';
-// import SignUpLogin from '../src/components/assets/SignUp_Login/SignUp_Login';
+
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <MainContent />
       {/* You can conditionally render the SignUpLogin component based on some state or condition */}
       {/* For example, you can render it only when a certain route is matched */}
       {/* <Route path="/signup-login" component={SignUpLogin} /> */}
       {/* <SignUpLogin /> */}
-      <MainContent />
       <Footer />
     </div>
   );
