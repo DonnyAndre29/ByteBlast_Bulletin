@@ -1,7 +1,15 @@
 import React from 'react';
-import Header from './components/Header';
-import MainContent from './components/MainContent';
-import Footer from './components/Footer';
+import Header from './components/Header/Header';
+import MainContent from './components/MainContent/MainContent';
+import Footer from './components/Footer/Footer';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { Outlet } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 
 
@@ -44,6 +52,7 @@ function App() {
       {/* For example, you can render it only when a certain route is matched */}
       {/* <Route path="/signup-login" component={SignUpLogin} /> */}
       {/* <SignUpLogin /> */}
+      <Outlet />
       <Footer />
       
       {/* <User /> */}

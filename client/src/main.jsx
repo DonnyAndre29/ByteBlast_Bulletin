@@ -5,8 +5,8 @@ import './index.css'
 import 'semantic-ui-css/semantic.min.css'
 import App from './App.jsx'
 import 'semantic-ui-css/semantic.min.css'
-import SignUpLogin from './pages/SignUp_Login/SignUp_Login'; 
-import SignUp_Login from './pages/SignUp_Login/SignUp_Login'
+import Home from './pages/Home'; 
+// import SignUp_Login from './pages/SignUp_Login/SignUp_Login'
 
 
 const router = createBrowserRouter([
@@ -19,16 +19,16 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <App />
+        element: <Home />
       }
     ]
   },
-  {
-    path: '/SignUp_Login',
-    element: <SignUp_Login />,
-    errorElement: <h1>Wrong Page</h1>,
+  // {
+  //   path: '/SignUp_Login',
+  //   element: <SignUp_Login />,
+  //   errorElement: <h1>Wrong Page</h1>,
 
-  }
+  // }
 ]);
 
 
