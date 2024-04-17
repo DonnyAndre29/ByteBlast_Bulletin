@@ -1,10 +1,10 @@
 // resolvers
-const {User, Post} = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth'); 
+const { User, Post } = require('../models');
+const { signToken, AuthenticationError, signupResolver } = require('../utils/auth');
 
 const blogResolvers = {
-   // Important for useQuery: The resolver matches the typeDefs entry point and informs the request of the relevant data
-   Query: {
+  // Important for useQuery: The resolver matches the typeDefs entry point and informs the request of the relevant data
+  Query: {
     users: async () => {
       return User.find().populate('posts');
     },
@@ -23,14 +23,38 @@ const blogResolvers = {
     },
 
   },
-  
-  Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      const token = signToken(user);
-      // Return an `Auth` object that consists of the signed token and user's information
-      return { token, user };
 
+  Mutation: {
+    // addUser: async (parent, { username, email, password }) => {
+    //   const user = await User.create({ username, email, password });
+    //   const token = signToken(user);
+    //   // Return an `Auth` object that consists of the signed token and user's information
+    //   return { token, user };
+
+    // },
+
+    // Add the signupResolver here
+    signupResolver: async (req, res) => {
+      const { email, username, password } = req.body;
+
+      // Validate input
+      if (!email || !username || !password) {
+        return res.status(500).json({ message: 'Please provide all required fields' });
+      }
+
+      try {
+        // Create a new user
+        const newUser = new User({ email, username, password });
+        await newUser.save();
+
+        // Generate JWT token
+        const token = signToken(newUser);
+
+        return res.status(201).json({ token, newUser });
+      } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'An error occurred while signing up' });
+      }
     },
 
     addPost: async (parent, { content, author }) => {
@@ -44,6 +68,8 @@ const blogResolvers = {
       return post;
 
     },
+
+
 
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
@@ -89,10 +115,10 @@ const blogResolvers = {
       );
     },
 
-    
-    },
-    
-  }
+
+  },
+
+}
 
 
 module.exports = blogResolvers;
