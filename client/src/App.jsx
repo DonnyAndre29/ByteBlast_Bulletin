@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 
 
 
+
 function App() {
   return (
     <div className="App">
@@ -13,7 +14,9 @@ function App() {
       {/* You can conditionally render the SignUpLogin component based on some state or condition */}
       {/* For example, you can render it only when a certain route is matched */}
       {/* <Route path="/signup-login" component={SignUpLogin} /> */}
+
       {/* <SignUp_Login /> */}
+
       <MainContent />
       <Footer />
       
