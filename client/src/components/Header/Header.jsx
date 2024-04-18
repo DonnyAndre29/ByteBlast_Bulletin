@@ -1,8 +1,65 @@
-// components/Header.js
-
 import React from 'react';
-import { Menu, Input } from 'semantic-ui-react';
-import {Link} from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+
+function Header() {
+  return (
+    <Menu pointing secondary size="large" style={{ backgroundColor: '#FFD700', margin: 0, borderRadius: 0, fontFamily: 'Georgia, serif' }}>
+      <Menu.Item
+        header
+        content="ByteBlast Bulletin"
+        style={{ color: '#000000' }}
+      />
+      <Menu.Menu position='right'>
+        <Menu.Item
+          name='home'
+          as={Link}
+          to='/'
+          style={{ color: '#000000' }}
+        >
+          Home
+        </Menu.Item>
+        <Menu.Item
+          name='about'
+          as={Link}
+          to='/about'
+          style={{ color: '#000000' }}
+        >
+          About
+        </Menu.Item>
+        <Menu.Item
+          name='contact'
+          as={Link}
+          to='/contact'
+          style={{ color: '#000000' }}
+        >
+          Contact
+        </Menu.Item>
+        <Menu.Item
+          name='login'
+          as={Link}
+          to='/login'
+          style={{ color: '#000000' }}
+        >
+          Login
+        </Menu.Item>
+      </Menu.Menu>
+    </Menu>
+  );
+}
+
+export default Header;
+
+
+
+
+
+
+
+
+
+
+
 
 // function Header() {
 //   return (
@@ -22,37 +79,3 @@ import {Link} from 'react-router-dom';
 // }
 
 // export default Header;
-
-function Header() {
-  return (
-    <Menu pointing secondary size="large" style={{ backgroundColor: '#f2711c' }}>
-      <Menu.Item
-        name='home'
-        as={Link}
-        to='/'
-        style={{ color: '#ffffff' }}
-      >
-        Home
-      </Menu.Item>
-      <Menu.Item
-        name='about'
-        as={Link}
-        to='/about'
-        style={{ color: '#ffffff' }}
-      >
-        About
-      </Menu.Item>
-      <Menu.Item
-        name='contact'
-        as={Link}
-        to='/contact'
-        style={{ color: '#ffffff' }}
-      >
-        Contact
-      </Menu.Item>
-    </Menu>
-  );
-}
-
-export default Header;
-
