@@ -1,12 +1,45 @@
-import React, { useState } from "react";
-import '../SignUp_Login/SignUp_Login.css'
+import React, {useState}  from "react";
+// import '../SignUp_Login/SignUp_Login.css'
+import './SignUp_Login/SignUp_Login.css'
+// import { ADD_USER } from '../utils/mutations';
+// import Auth from '../utils/auth';
+import user_icon from './SignUp_Login/person.png'
+import email_icon from './SignUp_Login/email.png'
+import password_icon from './SignUp_Login/password.png'
 
-import user_icon from '../SignUp_Login/person.png'
-import email_icon from '../SignUp_Login/email.png'
-import password_icon from '../SignUp_Login/password.png'
 
 const SignUp_Login = () => {
     const [action, setAction] = useState('Sign Up');
+    // const [formState, setFormState] = useState({
+    //     username: '',
+    //     email: '',
+    //     password: '',
+    //   });
+    //   const [addUser, { error, data }] = useMutation(ADD_USER);
+    
+    //   const handleChange = (event) => {
+    //     const { name, value } = event.target;
+    
+    //     setFormState({
+    //       ...formState,
+    //       [name]: value,
+    //     });
+    //   };
+    
+    //   const handleFormSubmit = async (event) => {
+    //     event.preventDefault();
+    //     console.log(formState);
+    
+    //     try {
+    //       const { data } = await addUser({
+    //         variables: { ...formState },
+    //       });
+    
+    //       Auth.login(data.addUser.token);
+    //     } catch (e) {
+    //       console.error(e);
+    //     }
+    //   };
 
     return (
         <div className="container_SignUp">
