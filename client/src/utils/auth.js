@@ -1,7 +1,7 @@
 import decode from 'jwt-decode';
 
 class AuthPage {
-  getUser() {
+  getUserProfile() {
     return decode(this.getToken());
   }
 

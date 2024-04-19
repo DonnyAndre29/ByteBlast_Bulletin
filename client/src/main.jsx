@@ -7,6 +7,7 @@ import App from './App.jsx'
 import 'semantic-ui-css/semantic.min.css'
 import Home from './pages/Home'; 
 import SignUp_Login from './pages/SignUp_Login.jsx'
+// import SinglePost from './pages/Post';
 // import About from './components/MainContent/MainContent.jsx'
 // import Contact from './components/MainContent/MainContent.jsx'
 
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
       {
         path: '/SignUp_Login',
         element: <SignUp_Login />,
-      }
+      },
+      // {
+      //   path: '/post/:postId',
+      //   element: <SinglePost />,
+      // }
      
     ]
   },

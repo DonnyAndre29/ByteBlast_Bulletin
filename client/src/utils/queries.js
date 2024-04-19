@@ -43,3 +43,19 @@ export const QUERY_POSTS = gql`
     }
   }
 `;
+
+export const QUERY_SINGLE_POST = gql`
+  query getSinglePost($postId: ID!) {
+    post(posttId: $postId) {
+      _id
+      content
+      author
+      date
+      comments {
+        _id
+        commentText
+        date
+      }
+    }
+  }
+`;
