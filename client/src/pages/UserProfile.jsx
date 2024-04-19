@@ -23,7 +23,7 @@ const User = () => {
   const user = data?.you || data?.user || {};
 
   // Use React Router's `<Navigate />` component to redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
+  if (Auth.loggedIn() && Auth.getUserProfile().data._id === userId) {
     return <Navigate to="/me" />;
   }
 
@@ -35,7 +35,7 @@ const User = () => {
     return (
       <h4>
         You need to be logged in to see your profile page. Use the navigation
-        links above to sign up or log in!
+        links to sign up or log in!
       </h4>
     );
   }
@@ -43,8 +43,7 @@ const User = () => {
   return (
     <div>
       <h2 className="card-header">
-        {userId ? `${user.username}'s` : 'Your'} friends have endorsed these
-        posts...
+        {userId ? `${user.username}'s` : 'Your'} friends posts...
       </h2>
 
       {user.posts?.length > 0 && (
