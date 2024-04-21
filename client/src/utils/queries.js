@@ -37,20 +37,20 @@ export const QUERY_POSTS = gql`
   query getPosts {
     posts {
       _id
-      content
-      author
-      date
+      postContent
+      postAuthor
+      dateAt
     }
   }
 `;
 
 export const QUERY_SINGLE_POST = gql`
   query getSinglePost($postId: ID!) {
-    post(posttId: $postId) {
+    post(postId: $postId) {
       _id
-      content
-      author
-      date
+      postContent
+      postAuthor
+      dateAt
       comments {
         _id
         commentText

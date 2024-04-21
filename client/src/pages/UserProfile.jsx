@@ -1,7 +1,7 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import PostsList from '../components/PostsList';
+import PostsList from '../components/PostList';
 import PostForm from '../components/PostForm';
 
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
@@ -23,8 +23,8 @@ const User = () => {
   const user = data?.you || data?.user || {};
 
   // Use React Router's `<Navigate />` component to redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getUserProfile().data._id === userId) {
-    return <Navigate to="/me" />;
+  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
+    return <Navigate to="/user" />;
   }
 
   if (loading) {

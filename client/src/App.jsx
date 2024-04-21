@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import MainContent from './components/MainContent/MainContent';
+// import MainContent from './components/MainContent/MainContent';
 import Footer from './components/Footer/Footer';
 import {
   ApolloClient,
@@ -47,12 +47,14 @@ function App() {
     <ApolloProvider client = {client}>
     <div className="App">
       <Header />
-      <MainContent />
+      {/* <MainContent /> */}
       {/* You can conditionally render the SignUpLogin component based on some state or condition */}
       {/* For example, you can render it only when a certain route is matched */}
       {/* <Route path="/signup-login" component={SignUpLogin} /> */}
       {/* <SignUpLogin /> */}
+      
       <Outlet />
+      
       <Footer />
       
       {/* <User /> */}

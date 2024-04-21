@@ -9,13 +9,13 @@ const blogResolvers = {
       return User.find().populate('posts');
     },
 
-    user: async (parent, { userId }) => {
-      return User.findOne({ userId }).populate('posts');
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate('posts');
     },
 
     posts: async () => {
       const params = username ? { username } : {};
-      return Post.find(params);
+      return Post.find(params).sort({ dateAt: -1 });
     },
 
     post: async (parent, { postId }) => {
@@ -26,55 +26,14 @@ const blogResolvers = {
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
-      console.log(username, email, password, 'Started at user')
       const user = await User.create({ username, email, password });
-      console.log(user, "User")
       const token = signToken(user);
       // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
 
     },
 
-    // Add the signupResolver here
-    // signupResolver: async (req, res) => {
-    //   const { email, username, password } = req.body;
-
-    //   // Validate input
-    //   if (!email || !username || !password) {
-    //     return res.status(500).json({ message: 'Please provide all required fields' });
-    //   }
-
-    //   try {
-    //     // Create a new user
-    //     const newUser = new User({ email, username, password });
-    //     await newUser.save();
-
-    //     // Generate JWT token
-    //     const token = signToken(newUser);
-
-    //     return res.status(201).json({ token, newUser });
-    //   } catch (error) {
-    //     console.error(error);
-    //     return res.status(500).json({ message: 'An error occurred while signing up' });
-    //   }
-    // },
-
-    addPost: async (parent, { content, author }) => {
-      const post = await Post.create({ content, author });
-
-      await User.findOneAndUpdate(
-        { username: author },
-        { $addToSet: { posts: post._id } }
-      );
-
-      return post;
-
-    },
-
-
-
     login: async (parent, { email, password }) => {
-      console.log("starting login server")
       const user = await User.findOne({ email });
       
 
@@ -83,15 +42,26 @@ const blogResolvers = {
       }
 
       const correctPw = await user.isCorrectPassword(password);
-      console.log(correctPw)
       if (!correctPw) {
         throw AuthenticationError
       }
 
-      const token = signToken(User);
-      console.log(token, user, "conclude login")
-      return { token, User };
+      const token = signToken(user);
+      return { token, user };
     },
+   
+
+    addPost: async (parent, { content, author }) => {
+      const post = await Post.create({ postContent, postAuthor });
+
+      await User.findOneAndUpdate(
+        { username: postAuthor },
+        { $addToSet: { posts: post._id } }
+      );
+
+      return post;
+
+    },   
 
     addComment: async (parent, { postId, commentContent, commentAuthor }) => {
       return Post.findOneAndUpdate(
