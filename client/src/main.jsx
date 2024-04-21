@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import './index.css'
+// import './index.css'
+import 'semantic-ui-css/semantic.min.css'
 import 'semantic-ui-css/semantic.min.css'
 import App from './App.jsx'
-import 'semantic-ui-css/semantic.min.css'
 import Home from './pages/Home'; 
-import SignUp_Login from './pages/SignUp_Login.jsx'
-// import SinglePost from './pages/Post';
+// import SignUp_Login from './pages/SignUp_Login.jsx'
+import UserProfile from './pages/UserProfile.jsx';
+import Login from './pages/Login.jsx'
+import Signup from './pages/Signup.jsx'
+import Post from './pages/Post.jsx'
 // import About from './components/MainContent/MainContent.jsx'
 // import Contact from './components/MainContent/MainContent.jsx'
 
@@ -25,39 +28,31 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: '/SignUp_Login',
-        element: <SignUp_Login />,
+        path: '/login',
+        element: <Login />,
       },
-      // {
-      //   path: '/post/:postId',
-      //   element: <SinglePost />,
-      // }
+
+      {
+        path: '/signup',
+        element: <Signup />,
+      },
+
+      {
+        path: '/user',
+        element: <UserProfile />,
+      },
+
+      {
+        path: '/post',
+        element: <Post />,
+      }
      
     ]
   },
  
 ]);
 
-// const routes = [
-//   {
-//     path: '/',
-//     element: <App />,
-//     children: [
-//       {
-//         index: true,
-//         element: <Home />,
-//       },
-//       {
-//         path: '/SignUp_Login',
-//         element: <SignUp_Login />,
-//       },
-     
-//     ],
-//   },
-// ];
 
-// // Create the router
-// const router = createBrowserRouter(routes);
 
 
 

@@ -10,17 +10,17 @@ const typeDefs = `
 
   type Post {
     _id: ID
-    title: String
-    content: String
-    author: String
-    date: String
+    postContent: String
+    postAuthor: String
+    dateAt: String
+    comments: [Comment]!
   }
 
   type Comment {
     _id: ID
     commentContent: String
     commentAuthor: String
-    date: String
+    dateAt: String
   }
 
 
@@ -45,7 +45,7 @@ const typeDefs = `
       commentContent: String!
       commentAuthor: String!
     ): Post
-    removePost(thoughtId: ID!): Post
+    removePost(postId: ID!): Post
     removeComment(postId: ID!, commentId: ID!): Post
   }
 
