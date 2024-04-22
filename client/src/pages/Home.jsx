@@ -14,7 +14,7 @@ function Home() {
         </p>
         {/* Link to signup/login page */}
         <Link to="/signup_login">
-          <Button primary style={buttonStyle}>Sign Up</Button>
+          <Button primary style={buttonStyle}>Sign Up/Login</Button>
         </Link>
       </Container>
       <Divider />
