@@ -41,6 +41,15 @@ function Home() {
           Have questions or feedback? Reach out to us at support@byteblast.com.
         </p>
       </Container>
+      {/* GitHub Links Section */}
+      <Container textAlign='center' style={{ margin: '2em 0' }}>
+        <Divider horizontal>GITHUB LINKS</Divider>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <a href="https://github.com/DonnyAndre29" target="_blank" rel="noopener noreferrer" style={githubLinkStyle}>DonAndre Clark II</a>
+          <a href="https://github.com/JoshuaBryantza" target="_blank" rel="noopener noreferrer" style={githubLinkStyle}>Joshua Bryant</a>
+          <a href="https://github.com/jhill1230" target="_blank" rel="noopener noreferrer" style={githubLinkStyle}>Justin Hill</a>
+        </div>
+      </Container>
     </main>
   );
 }
@@ -58,7 +67,24 @@ const buttonStyle = {
   transition: 'transform 0.2s, box-shadow 0.2s',
 };
 
+const githubLinkStyle = {
+  fontFamily: 'Georgia, serif',
+  fontSize: '1.2em',
+  padding: '0.5em 1em',
+  borderRadius: '0.5em',
+  margin: '0 1em',
+  boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+  backgroundImage: 'linear-gradient(to right, #24292E, #24292E)',
+  color: '#fff',
+  border: 'none',
+  cursor: 'pointer',
+  transition: 'transform 0.2s, box-shadow 0.2s',
+};
+
 export default Home;
+
+
+
 
 // import { useQuery } from '@apollo/client';
 
