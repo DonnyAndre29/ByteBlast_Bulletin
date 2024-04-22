@@ -30,6 +30,7 @@
     ]
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
     "vite": "^5.2.10",
     "vite-plugin-react-refresh": "^1.0.0"
   }
