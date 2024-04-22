@@ -12,7 +12,11 @@
     "use-history": "^1.4.1"
   },
   "scripts": {
-    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\""
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "start": "node server/server.js",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
+
   },
   "browserslist": {
     "production": [
