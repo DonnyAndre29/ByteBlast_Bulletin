@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import './SignUp_Login/Blog_Website.css' 
+// import UserProfileList from '../components/UserProfileList';
+// import { QUERY_USERS } from '../utils/queries';
+// const { loading, data } = useQuery(QUERY_USERS);
+// const userProfiles = data?.userProfiles || [];
 
 function BlogWebsite() {
+
   const [postsData, setPostsData] = useState([]);
   const [newPostTitle, setNewPostTitle] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
-  const [newComment, setNewComment] = useState('');
+   const [newComment, setNewComment] = useState('');
   const [commentPostId, setCommentPostId] = useState(null);
   const handleNewPostSubmit = () => {
     if (!newPostTitle || !newPostContent) return;
@@ -47,7 +52,7 @@ function BlogWebsite() {
     });
     setPostsData(updatedPostsData);
     setNewComment('');
-  };
+ };
   return (
     <div className="blog">
       <h1>New Post</h1>
@@ -56,6 +61,7 @@ function BlogWebsite() {
         <textarea placeholder="Content" value={newPostContent} onChange={(e) => setNewPostContent(e.target.value)}></textarea>
         <button onClick={handleNewPostSubmit}>Post</button>
       </div>
+
       <h1>Blog Posts</h1>
       {postsData.map(post => (
         <div key={post.id} className="post">
@@ -67,19 +73,25 @@ function BlogWebsite() {
             <span>Likes: {post.likes}</span>
             <span>Dislikes: {post.dislikes}</span>
           </div>
+
           <h3>Comments</h3>
           {post.comments && post.comments.map(comment => (
             <div key={comment.id} className="comment">
               <p>{comment.text}</p>
             </div>
           ))}
+
           <div className="comment-form">
             <input type="text" placeholder="Add a comment" value={newComment} onChange={(e) => setNewComment(e.target.value)} />
             <button onClick={() => handleAddComment(post.id, newComment)}>Add Comment</button>
           </div>
         </div>
+
+
       ))}
+    
     </div>
+
   );
 }
 export default BlogWebsite;
