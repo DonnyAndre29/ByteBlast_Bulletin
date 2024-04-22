@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import SignUp_Login from './pages/SignUp_Login.jsx'
 import UserProfile from './pages/UserProfile.jsx';
 import BlogWebsite from './pages/Blog_Website.jsx'
+
 // import About from './components/MainContent/MainContent.jsx'
 // import Contact from './components/Header/Header.jsx'
 
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <BlogWebsite />,
+
       },
 
       {
@@ -44,6 +46,7 @@ const router = createBrowserRouter([
       },
 
           
+
     ]
   },
  
