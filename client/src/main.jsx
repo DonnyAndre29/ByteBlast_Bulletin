@@ -11,7 +11,7 @@ import SignUp_Login from './pages/SignUp_Login.jsx'
 // import Login from './pages/SignUp_Login.jsx'
 // import Signup from './pages/SignUp_Login.jsx'
 import BlogWebsite from './pages/Blog_Website.jsx'
-import Post from './pages/Post.jsx'
+// import Post from './pages/Post.jsx'
 // import About from './components/MainContent/MainContent.jsx'
 // import Contact from './components/MainContent/MainContent.jsx'
 
@@ -36,11 +36,6 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <BlogWebsite />,
-      },
-
-      {
-        path: '/post',
-        element: <Post />,
       }
      
     ]
