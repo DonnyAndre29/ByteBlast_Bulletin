@@ -16,7 +16,6 @@
     "start": "node server/server.js",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build"
-
   },
   "browserslist": {
     "production": [
@@ -31,6 +30,7 @@
     ]
   },
   "devDependencies": {
+    "vite": "^5.2.10",
     "vite-plugin-react-refresh": "^1.0.0"
   }
 }
