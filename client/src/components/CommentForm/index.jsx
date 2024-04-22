@@ -10,6 +10,9 @@ const CommentForm = ({ thoughtId }) => {
   const [commentText, setCommentText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
+  // const [newComment, setNewComment] = useState('');
+  // const [commentPostId, setCommentPostId] = useState(null);
+
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   const handleFormSubmit = async (event) => {
@@ -39,9 +42,21 @@ const CommentForm = ({ thoughtId }) => {
     }
   };
 
+  // const handleAddComment = (postId, commentText) => {
+  //   if (!commentText) return;
+  //   const updatedPostsData = postsData.map(post => {
+  //     if (post.id === postId) {
+  //       return { ...post, comments: [...(post.comments || []), { id: post.comments.length + 1, text: commentText }] };
+  //     }
+  //     return post;
+  //   });
+  //   setPostsData(updatedPostsData);
+  //   setNewComment('');
+  // };
+
   return (
     <div>
-      <h4>What are your thoughts on this thought?</h4>
+      <h4>What are your thoughts on this post?</h4>
 
       {Auth.loggedIn() ? (
         <>
