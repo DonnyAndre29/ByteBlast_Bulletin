@@ -13,7 +13,7 @@ function Home() {
           ByteBlast Bulletin is a blog website dedicated to software developers. Here, developers can share their ideas, insights, tutorials, and projects with the community. Whether you're a seasoned developer or just starting out, ByteBlast Bulletin provides a platform for learning, collaboration, and inspiration.
         </p>
         {/* Link to signup/login page */}
-        <Link to="/signup">
+        <Link to="/signup_login">
           <Button primary style={buttonStyle}>Sign Up</Button>
         </Link>
       </Container>
