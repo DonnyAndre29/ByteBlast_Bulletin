@@ -6,11 +6,8 @@ function BlogWebsite() {
 
   const [postsData, setPostsData] = useState([]);
   const [newPostTitle, setNewPostTitle] = useState('');
-  const [newPostContent, setNewPostContent] = useState('');
-
-   const [newComment, setNewComment] = useState('');
+  const [newPostContent, setNewPostContent] = useState('');  
   const [commentPostId, setCommentPostId] = useState(null);
-
   const [newPostImage, setNewPostImage] = useState(null);
   const [newPostImageName, setNewPostImageName] = useState('');
   const [newComment, setNewComment] = useState({});
