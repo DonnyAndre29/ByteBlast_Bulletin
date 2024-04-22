@@ -1,13 +1,25 @@
 // components/Footer.js
+// import { useLocation, useNavigate } from 'react-router-dom';
+// import React from 'react';
 
-import React from 'react';
+// function Footer() {
+//   const location = useLocation();
+//   const navigate = useNavigate();
+//   return (
+//     <footer className="w-100 mt-auto text-dark p-4">
+//       <div className="container text-center mb-5">
+//         {location.pathname !== '/signup_login' && (
+//           <button
+//             className="btn btn-dark mb-3"
+//             onClick={() => navigate(-1)}
+//           >
+//             &larr; Go Back
+//           </button>
+//         )}
+//         <h4>&copy; {new Date().getFullYear()} - ByteBlast Bulletin</h4>
+//       </div>
+//     </footer>
+//   )
+// }
 
-function Footer() {
-  return (
-    <footer>
-      <p></p>
-    </footer>
-  );
-}
-
-export default Footer;
+// export default Footer;

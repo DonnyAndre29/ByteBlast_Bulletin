@@ -1,10 +1,16 @@
+
 import React, { useState, useEffect } from 'react';
 import './SignUp_Login/Blog_Website.css';
 
 function BlogWebsite() {
+
   const [postsData, setPostsData] = useState([]);
   const [newPostTitle, setNewPostTitle] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
+
+   const [newComment, setNewComment] = useState('');
+  const [commentPostId, setCommentPostId] = useState(null);
+
   const [newPostImage, setNewPostImage] = useState(null);
   const [newPostImageName, setNewPostImageName] = useState('');
   const [newComment, setNewComment] = useState({});
@@ -20,6 +26,7 @@ function BlogWebsite() {
   useEffect(() => {
     localStorage.setItem('postsData', JSON.stringify(postsData));
   }, [postsData]);
+
 
   const handleNewPostSubmit = () => {
     if (!newPostTitle || !newPostContent) return;
@@ -95,6 +102,7 @@ function BlogWebsite() {
       return post;
     });
     setPostsData(updatedPostsData);
+
     setNewComment({ ...newComment, [postId]: '' });
   };
 
@@ -125,6 +133,7 @@ function BlogWebsite() {
     document.body.style.overflow = ''; // Enable scrolling
   };
 
+
   return (
     <div className="blog">
       <h1>New Post</h1>
@@ -140,6 +149,7 @@ function BlogWebsite() {
         )}
         <button onClick={handleNewPostSubmit}>Post</button>
       </div>
+
       <h1>Blog Posts</h1>
       {postsData.map(post => (
         <div key={post.id} className="post">
@@ -151,18 +161,23 @@ function BlogWebsite() {
             <button onClick={() => handleDislike(post.id)}>👎 {post.dislikes}</button>
             <button onClick={() => handleDeletePost(post.id)}>Delete</button>
           </div>
+
           <h3>Comments</h3>
           {post.comments && post.comments.map(comment => (
             <div key={comment.id} className="comment">
               <p>{comment.text}</p>
             </div>
           ))}
+
           <div className="comment-form">
             <input type="text" placeholder="Add a comment" value={newComment[post.id] || ''} onChange={(e) => setNewComment({ ...newComment, [post.id]: e.target.value })} />
             <button onClick={() => handleAddComment(post.id)}>Add Comment</button>
           </div>
         </div>
+
+
       ))}
+
       {enlargedImage && (
         <div className="enlarged-image-overlay" onClick={handleCloseEnlargedImage}>
           <div className="enlarged-image-container">
@@ -170,7 +185,9 @@ function BlogWebsite() {
           </div>
         </div>
       )}
+
     </div>
+
   );
 }
 

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import './SignUp_Login/SignUp_Login.css'
-// import { useHistory } from 'react-router-dom'; // Import useHistory hook
-import { Navigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-const SignUp_Login = () => {
-    // const history = useHistory(); // Initialize useHistory hook
+
+const SignUp_Login = () => {   
     const [action, setAction] = useState('Sign Up');
     const [formState, setFormState] = useState({
         username: '',
@@ -17,6 +16,8 @@ const SignUp_Login = () => {
     });
     const [addUser, { error, data }] = useMutation(ADD_USER);
     const [login, { err, login_data }] = useMutation(LOGIN_USER);
+    // const navigate = useNavigate();
+
     const handleLoginSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -24,8 +25,8 @@ const SignUp_Login = () => {
                 variables: { ...formState },
             });
             Auth.login(loginData.login.token);
-            // Redirect to Blog Website after successful login
-            // history.push('/post');
+            // navigate('/blog');
+           
         } catch (err) {
             console.error(err);
         }
@@ -49,6 +50,7 @@ const SignUp_Login = () => {
                 variables: { ...formState },
             });
             Auth.login(data.addUser.token);
+            // navigate('/blog');
         } catch (e) {
             console.error(e);
         }
@@ -85,7 +87,7 @@ const SignUp_Login = () => {
                                 onChange={handleChange}
                             />
                             
-                                <Link to="/blog"> 
+                            <Link to="/blog"> 
                                 <button
                                     className="btn btn-block btn-primary"
                                     style={{ cursor: 'pointer' }}
@@ -94,6 +96,7 @@ const SignUp_Login = () => {
                                     Submit
                                 </button>
                             </Link>
+                            
                         </form>
                     </React.Fragment>
                     :
@@ -122,11 +125,10 @@ const SignUp_Login = () => {
                                 type="password"
                                 value={formState.password}
                                 onChange={handleChange}
-                            />
-                            
+                            />                          
                                 
-                                <Link to="/blog"> 
-                            
+                                                            
+                                <Link to="/blog">                   
                             
                             <button
                                 className="btn btn-block btn-primary complete-sign-up"
@@ -136,6 +138,7 @@ const SignUp_Login = () => {
                                 Complete Sign Up!
                             </button>
                         </Link>
+
                         <button className="forgot-password" style={{ cursor: 'pointer' }}
                             type="submit">
                             Forgot Password? <span>Click Here!</span>
