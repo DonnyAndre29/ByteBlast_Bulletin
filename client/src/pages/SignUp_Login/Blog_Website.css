@@ -1,111 +1,192 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #F8F9FA;
-  }
-  .blog {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  h1 {
-    margin-top: 0;
-    font-size: 28px;
-    color: #333;
-  }
-  .new-post input[type="text"],
-  .new-post textarea {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  .new-post textarea {
-    height: 150px;
-  }
-  .new-post button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .new-post button:hover {
-    background-color: #0056B3;
-  }
-  .post {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #F5F5F5;
-  }
-  .post h2 {
-    margin-top: 0;
-    font-size: 24px;
-    color: #333;
-  }
-  .post p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: #555;
-  }
-  .actions button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28A745;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .actions button:last-child {
-    margin-right: 0;
-  }
-  .actions button:hover {
-    background-color: #218838;
-  }
-  .comment-form input[type="text"] {
-    width: calc(100% - 130px);
-    margin-right: 10px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  .comment-form button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .comment-form button:hover {
-    background-color: #0056B3;
-  }
-  .comment {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #E9ECEF;
-  }
-  .comment p {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #333;
-  }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F8F9FA;
+}
+
+.blog {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: none; /* Remove the box-shadow */
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 24px; /* Adjust font size */
+  color: #333;
+}
+
+.new-post-container,
+.blog-posts-container {
+  text-align: center;
+}
+
+.new-post {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #F5F5F5;
+}
+
+.new-post input[type="text"],
+.new-post textarea {
+  width: calc(100% - 24px); /* Adjust input width */
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.new-post textarea {
+  height: 120px; /* Adjust textarea height */
+}
+
+.new-post button {
+  padding: 12px 24px;
+  margin-top: 10px; /* Add margin to the top */
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.new-post button + button {
+  margin-left: 10px; /* Add margin to the left of the second button */
+}
+
+.new-post button:hover {
+  background-color: #0056B3;
+}
+
+.post {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #F5F5F5;
+  text-align: left; /* Align post content to the left */
+}
+
+.post h2 {
+  margin-top: 0;
+  font-size: 20px; /* Adjust font size */
+  color: #333;
+}
+
+.post p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+.actions button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28A745;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.actions button:last-child {
+  margin-right: 0;
+}
+
+.actions button:hover {
+  background-color: #218838;
+}
+
+.comment-form input[type="text"] {
+  width: calc(100% - 130px);
+  margin-right: 10px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.comment-form button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px; /* Add margin to the top */
+}
+
+.comment-form button:hover {
+  background-color: #0056B3;
+}
+
+.comment {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #E9ECEF;
+}
+
+.comment p {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.post img {
+  max-width: 100%; 
+  max-height: 300px; 
+  object-fit: cover; 
+}
+
+.enlarged-image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  z-index: 1000; /* Ensure it's above other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enlarged-image-container {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.enlarged-image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Blur effect for the rest of the content */
+.blur {
+  filter: blur(5px);
+}
+
+/* Ensure the margins for buttons are consistent */
+.new-post button + button,
+.comment-form button + button {
+  margin-left: 10px; /* Add margin to the left of the second button */
+}
+
+
+ 
   
   
   
