@@ -1,13 +1,11 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, MenuItem } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-// import { HashLink } from 'react-router-hash-link'
+import { HashLink } from 'react-router-hash-link'
+// import { useLocation, useNavigate } from 'react-router-dom';
 
-function Header() {
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
+ function Header() {
+
   return (
    
     <Menu pointing secondary size="large" style={{ backgroundColor: '#FFD700', margin: 0, borderRadius: 0, fontFamily: 'Georgia, serif' }}>
@@ -19,42 +17,32 @@ function Header() {
       />
       <Menu.Menu position='right'>
 
-      {/* <Menu.Item
-          name='logout'
-          as={Link}
-          to='/logout'
-          style={{ color: '#000000' }}
-        >
-           <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
-         
-        </Menu.Item> */}
         <Menu.Item
           name='home'
           as={Link}
           to='/'
-          style={{ color: '#000000' }}
+          style={{ color: '#000000', margin: 0,  padding: 12 }}
         >
           Home
         </Menu.Item>
       
-        <Menu.Item
+        <HashLink
           name='about'
           as={Link}
-          to='/about'
-          style={{ color: '#000000' }}
-        >
+          smooth to='/#about'
+          style={{ color: '#000000', margin: 0,  padding: 12}}
+        >          
           About
-        </Menu.Item>
-        <Menu.Item
+        </HashLink>
+
+        <HashLink
           name='contact'
           as={Link}
-          to='/contact'
-          style={{ color: '#000000' }}
+          smooth to='/#contact'
+          style={{ color: '#000000', margin: 0,  padding: 12}}
         >
           Contact
-        </Menu.Item> 
+        </HashLink> 
        
       </Menu.Menu>
     </Menu>   
@@ -74,8 +62,12 @@ export default Header;
 
 
 
-
+// import { HashLink } from 'react-router-hash-link'
 // function Header() {
+//   const logout = (event) => {
+//     event.preventDefault();
+//     Auth.logout();
+//   };
 //   return (
 //     <Menu inverted style={{ backgroundColor: '#FFD700', border: 'none', borderRadius: '0', marginBottom: '0' }}>
 //       <Menu.Item header style={{ fontSize: '1.5em', color: '#000' }}>ByteBlast Bulletin</Menu.Item>

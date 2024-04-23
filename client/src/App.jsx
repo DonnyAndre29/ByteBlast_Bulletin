@@ -1,6 +1,6 @@
 import React from 'react';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
-// import MainContent from './components/MainContent/MainContent';
 // import Footer from './components/Footer/Footer';
 import {
   ApolloClient,
@@ -61,6 +61,7 @@ function App() {
     </div>
     
     </ApolloProvider>
+    
   );
 }
 

@@ -23,7 +23,7 @@ function Home() {
         
         <Divider horizontal>ABOUT</Divider>
         
-        <Header as='h3' id='About' style={{ fontFamily: 'Georgia, serif', fontSize: '2em', color: '#333' }}>About ByteBlast Bulletin</Header>
+        <Header as='h3' id='about' style={{ fontFamily: 'Georgia, serif', fontSize: '2em', color: '#333' }}>About ByteBlast Bulletin</Header>
         <p style={{ fontSize: '1.2em', color: '#555' }}>
           ByteBlast Bulletin is a platform where software developers can connect, share knowledge, and collaborate on projects. Our mission is to provide a space for developers to learn, grow, and inspire each other.
         </p>
@@ -34,9 +34,10 @@ function Home() {
       </Container>
       <Divider />
       <Container textAlign='center' style={{ margin: '2em 0' }}>
+
         {/* Contact Section */}
         <Divider horizontal>CONTACT</Divider>
-        <Header as='h3' id= 'section2' style={{ fontFamily: 'Georgia, serif', fontSize: '2em', color: '#333' }}>Contact Us</Header>
+        <Header as='h3' id= 'contact' style={{ fontFamily: 'Georgia, serif', fontSize: '2em', color: '#333' }}>Contact Us</Header>
         <p style={{ fontSize: '1.2em', color: '#555' }}>
           Have questions or feedback? Reach out to us at support@byteblast.com.
         </p>
